@@ -32,9 +32,5 @@ public class MainApp {
             System.out.println(word.charAt(0));
         }
 
-        for (String word : words) {
-            System.out.println(word.charAt(0));
-        }
-
     }
 }
