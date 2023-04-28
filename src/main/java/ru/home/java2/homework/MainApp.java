@@ -1,5 +1,8 @@
 package ru.home.java2.homework;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MainApp {
     public static void main(String[] args) {
         /*
@@ -18,5 +21,20 @@ public class MainApp {
         взаимодействие с пользователем через консоль и т.д).
         Консоль использовать только для вывода результатов проверки телефонного справочника.
          */
+
+        String[] words = {"Java", "Java", "Demo", "List", "Array", "Hash", "Map",
+                "String", "Exception", "Throw", "Java","Map", "Class", "Exception", "Main"};
+
+        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(words));
+        System.out.println(arrayList);
+
+        for (String word : words) {
+            System.out.println(word.charAt(0));
+        }
+
+        for (String word : words) {
+            System.out.println(word.charAt(0));
+        }
+
     }
 }
