@@ -1,7 +1,6 @@
 package ru.home.java2.homework;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class MainApp {
     public static void main(String[] args) {
@@ -9,6 +8,7 @@ public class MainApp {
         1 Создать массив с набором слов (10-20 слов, должны встречаться повторяющиеся).
         Найти и вывести список уникальных слов,
         из которых состоит массив (дубликаты не считаем).
+
         Посчитать, сколько раз встречается каждое слово.
 
         2 Написать простой класс Телефонный Справочник,
@@ -22,15 +22,42 @@ public class MainApp {
         Консоль использовать только для вывода результатов проверки телефонного справочника.
          */
 
-        String[] words = {"Java", "Java", "Demo", "List", "Array", "Hash", "Map",
-                "String", "Exception", "Throw", "Java","Map", "Class", "Exception", "Main"};
 
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(words));
-        System.out.println(arrayList);
+        // ЗАДАНИЕ №1
+        //___________________________________________________________________
+        String[] words = {
+                "Java", "Java", "Demo", "List", "Array",
+                "Hash", "Map", "String", "Exception", "Throw",
+                "Java", "Map", "Class", "Exception", "Main",
+                "Sheep", "Java", "Earth", "Fire", "Door", "Linux",
+                "Data", "Idea", "Bread", "Milk", "Zoo", "Animal",
+                "Cat", "Dog", "Science", "Astronomy", "Star", "Cafe"
+        };
+
+        // HashMap - для поиска уникальных значений по ключу - первой букве слова в массиве words
+        HashMap<Character, HashSet<String>> wordsMap = new HashMap<>();
 
         for (String word : words) {
-            System.out.println(word.charAt(0));
+            Character firstCharacter = word.charAt(0);
+            if (!wordsMap.containsKey(firstCharacter)) {
+                wordsMap.put(firstCharacter, new HashSet<>());
+            }
+            wordsMap.get(firstCharacter).add(word);
         }
 
+        System.out.println(wordsMap);
+
+        // HashMap - для подсчета количества одинаковых слов в массиве
+        HashMap<String, Integer> wordsCount = new HashMap<>();
+
+        for (String word : words) {
+            if (!wordsCount.containsKey(word)) {
+                wordsCount.put(word, 1);
+            } else {
+                wordsCount.put(word, wordsCount.get(word) + 1);
+            }
+        }
+
+        System.out.println(wordsCount);
     }
 }
