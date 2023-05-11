@@ -33,21 +33,6 @@ public class MainApp {
                 "Data", "Idea", "Bread", "Milk", "Zoo", "Animal",
                 "Cat", "Dog", "Science", "Astronomy", "Star", "Cafe"
         };
-
-        // HashMap - для поиска уникальных значений по ключу - первой букве слова в массиве words
-        HashMap<Character, HashSet<String>> wordsMap = new HashMap<>();
-
-        for (String word : words) {
-            Character firstCharacter = word.charAt(0);
-            if (!wordsMap.containsKey(firstCharacter)) {
-                wordsMap.put(firstCharacter, new HashSet<>());
-            }
-            wordsMap.get(firstCharacter).add(word);
-        }
-
-        System.out.println(wordsMap);
-
-        // HashMap - для подсчета количества одинаковых слов в массиве
         HashMap<String, Integer> wordsCount = new HashMap<>();
 
         for (String word : words) {

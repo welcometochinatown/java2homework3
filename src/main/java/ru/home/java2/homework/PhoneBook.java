@@ -4,25 +4,25 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class PhoneBook {
-    private HashMap<String, HashSet<String>> pbMap;
+    private HashMap<String, HashSet<String>> phoneBookMap;
 
     public PhoneBook() {
-        this.pbMap = new HashMap<>();
+        this.phoneBookMap = new HashMap<>();
     }
 
     public void add(String surname, String phoneNumber) {
         // Проверка фамилии на уникальность
-        if (!pbMap.containsKey(surname)) {
-            pbMap.put(surname, new HashSet<>());
+        if (!phoneBookMap.containsKey(surname)) {
+            phoneBookMap.put(surname, new HashSet<>());
         }
-        pbMap.get(surname).add(phoneNumber);
+        phoneBookMap.get(surname).add(phoneNumber);
     }
 
     public HashSet<String> get(String surname) {
         // Проверка фамилии на уникальность
-        if (!pbMap.containsKey(surname)) {
+        if (!phoneBookMap.containsKey(surname)) {
             return new HashSet<>();
         }
-        return pbMap.get(surname);
+        return phoneBookMap.get(surname);
     }
 }
